@@ -48,6 +48,8 @@ function getModule(params)
    var jcipVersion = "${jcip.version}";
    var simplecapthaVersion = "${nl.captcha.simplecaptcha.version}";
    var staxnavVersion = "${org.staxnav.version}";
+   var mgmtVersion = "${org.gatein.mgmt.version}";
+   var googleJSVersion = "${com.google.javascript.version}";
 
    //TODO versions for gatein components
    
@@ -96,7 +98,11 @@ function getModule(params)
       addDependency(new Project("org.codehaus.groovy", "groovy-all", "jar", groovyVersion));
 
    module.component.management =
-   new Project("org.exoplatform.portal", "exo.portal.component.management", "jar", module.version);
+   new Project("org.exoplatform.portal", "exo.portal.component.management", "jar", module.version).
+      addDependency(new Project("org.gatein.management", "gatein-management-core", "jar", mgmtVersion)).
+      addDependency(new Project("org.gatein.management", "gatein-management-api", "jar", mgmtVersion)).
+      addDependency(new Project("org.gatein.management", "gatein-management-spi", "jar", mgmtVersion)).
+      addDependency(new Project("org.gatein.management", "gatein-management-rest", "jar", mgmtVersion));
 
    module.component.web = {}
    module.component.web.controller =
@@ -115,11 +121,12 @@ function getModule(params)
       addDependency(module.component.scripting);
 
     module.component.web.resources =
-    new Project("org.exoplatform.portal", "exo.portal.component.web.resources", "jar", module.version);;
+    new Project("org.exoplatform.portal", "exo.portal.component.web.resources", "jar", module.version).
+      addDependency(new Project("com.google.javascript", "closure-compiler", "jar", googleJSVersion));
 
    module.component.web.api =
    new Project("org.exoplatform.portal", "exo.portal.component.web.api", "jar", module.version);
-
+   
    module.component.portal =
    new Project("org.exoplatform.portal", "exo.portal.component.portal", "jar", module.version).
       addDependency(new Project("org.gatein.mop", "mop-api", "jar", mopVersion)).
