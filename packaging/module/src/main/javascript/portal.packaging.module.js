@@ -279,6 +279,11 @@ function getModule(params)
       addDependency(jcr.frameworks.web).
       addDependency(jcr.frameworks.command);
 
+   module.web.mobile =
+   new Project("org.gatein.portal.portlet", "redirect", "war", module.version);
+   module.web.mobile.deployName = "redirect-portlet";
+
+
    module.server = {}
 
    module.server.tomcat = {}

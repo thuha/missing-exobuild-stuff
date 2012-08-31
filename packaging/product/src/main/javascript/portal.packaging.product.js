@@ -45,6 +45,7 @@ function getProduct(version) {
   product.addDependencies(portal.web.eXoResources);
 
   product.addDependencies(portal.web.portal) ;
+  product.addDependencies(portal.web.mobile) ;
   product.addDependencies(portal.sample.extension) ;
   product.addDependencies(portal.sample.skin) ;
 
