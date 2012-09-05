@@ -159,6 +159,9 @@ function getModule(params)
    module.component.applicationRegistry =
    new Project("org.exoplatform.portal", "exo.portal.component.application-registry", "jar", module.version).
       addDependency(module.component.portal);
+   
+   module.component.redirect =
+   new Project("org.gatein.web", "redirect", "jar", module.version);
 
    module.webui = {};
    module.webui.framework =
@@ -222,6 +225,11 @@ function getModule(params)
    new Project("org.exoplatform.portal", "exo.portal.portlet.dashboard", "exo-portlet", module.version).
       addDependency(new Project("org.exoplatform.portal", "exo.portal.webui.dashboard", "jar", module.version));
 
+   module.portlet.redirect =
+   new Project("org.gatein.portal.portlet", "redirect", "war", module.version).
+      addDependency(module.component.redirect);
+   module.portlet.redirect.deployName= "redirect-portlet";
+
    module.sample = {};
 
    module.sample.skin = new Project("org.gatein.portal.examples.skins", "gatein-sample-skin", "war", module.version);
@@ -278,10 +286,6 @@ function getModule(params)
    new Project("org.exoplatform.portal", "exo.portal.web.portal", "exo-portal", module.version).
       addDependency(jcr.frameworks.web).
       addDependency(jcr.frameworks.command);
-
-   module.web.mobile =
-   new Project("org.gatein.portal.portlet", "redirect", "war", module.version);
-   module.web.mobile.deployName = "redirect-portlet";
 
 
    module.server = {}

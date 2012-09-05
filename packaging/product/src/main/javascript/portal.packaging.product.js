@@ -38,6 +38,7 @@ function getProduct(version) {
   product.addDependencies(portal.portlet.exoadmin) ;
   product.addDependencies(portal.portlet.web) ;
   product.addDependencies(portal.portlet.dashboard) ;
+  product.addDependencies(portal.portlet.redirect);
   product.addDependencies(portal.eXoGadgetServer) ;
   product.addDependencies(portal.eXoGadgets) ;
   product.addDependencies(portal.webui.portal);
@@ -45,7 +46,6 @@ function getProduct(version) {
   product.addDependencies(portal.web.eXoResources);
 
   product.addDependencies(portal.web.portal) ;
-  product.addDependencies(portal.web.mobile) ;
   product.addDependencies(portal.sample.extension) ;
   product.addDependencies(portal.sample.skin) ;
 
