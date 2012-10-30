@@ -49,5 +49,9 @@
    <modules>
       <module>server</module>
       <module>packaging</module>
+      <module>core/packaging/module</module>
+      <module>kernel/packaging/module</module>
+      <module>ws/packaging/module</module>
+      <module>jcr/packaging/module</module>	
    </modules>
 </project>
