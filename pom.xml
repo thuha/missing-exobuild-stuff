@@ -22,27 +22,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
    <modelVersion>4.0.0</modelVersion>
-   <groupId>org.exoplatform.portal</groupId>
+   <groupId>org.gatein.portal</groupId>
    <artifactId>exo.portal.exbstuff</artifactId>
-   <version>3.4.0.Final</version>
+   <version>3.5.0.Beta01</version>
    <packaging>pom</packaging>
    <name>eXoBuild stuff</name>
 
    <properties>
-     <org.gatein.mop.version>1.1.1-GA</org.gatein.mop.version>
-     <version.chromattic>1.1.4</version.chromattic>
+     <org.gatein.mop.version>1.2.0.Beta01</org.gatein.mop.version>
+     <version.chromattic>1.2.0-beta1</version.chromattic>
      <version.reflext>1.1.0</version.reflext>
-     <org.picketlink.idm>1.3.2.CR02</org.picketlink.idm>
-     <org.gatein.pc.version>2.3.2-GA</org.gatein.pc.version>
-     <org.gatein.wci.version>2.2.0-Beta02</org.gatein.wci.version>
-     <org.gatein.common.version>2.0.4-GA</org.gatein.common.version>
-     <org.gatein.mgmt.version>1.0.1-GA</org.gatein.mgmt.version>
-     <org.gatein.wsrp.version>2.2.0-Beta04</org.gatein.wsrp.version>
-     <org.shindig.version>2.0.2-CP01</org.shindig.version>
+     <org.picketlink.idm>1.4.0.M02</org.picketlink.idm>
+     <org.gatein.pc.version>2.4.0.Beta02</org.gatein.pc.version>
+     <org.gatein.wci.version>2.3.0.Beta02</org.gatein.wci.version>
+     <org.gatein.common.version>2.1.0.Beta01</org.gatein.common.version>
+     <org.gatein.mgmt.version>1.1.0.CR3</org.gatein.mgmt.version>
+     <org.gatein.wsrp.version>2.2.0.Beta09</org.gatein.wsrp.version>
+     <org.shindig.version>2.0.2.Final-gatein-2</org.shindig.version>
      <org.codehaus.groovy.version>1.7.6</org.codehaus.groovy.version>
      <rhino.version>1.6R5</rhino.version>
      <jcip.version>1.0</jcip.version>
-     <nl.captcha.simplecaptcha.version>1.1.1-GA-Patch01</nl.captcha.simplecaptcha.version>
+     <nl.captcha.simplecaptcha.version>1.1.1.Final-gatein-2</nl.captcha.simplecaptcha.version>
      <org.staxnav.version>0.9.6</org.staxnav.version>
      <com.google.javascript.version>r1592</com.google.javascript.version>
    </properties>

@@ -55,14 +55,14 @@ function getModule(params)
    
    module.component = {}
    module.component.resources =
-   new Project("org.exoplatform.portal", "exo.portal.component.resources", "jar", module.version);
+   new Project("org.gatein.portal", "exo.portal.component.resources", "jar", module.version);
 
    module.component.common =
-   new Project("org.exoplatform.portal", "exo.portal.component.common", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.common", "jar", module.version).
       addDependency(new Project("org.gatein.common", "common-logging", "jar", commonVersion));
 
    module.component.pc =
-   new Project("org.exoplatform.portal", "exo.portal.component.pc", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.pc", "jar", module.version).
       addDependency(new Project("javax.portlet", "portlet-api", "jar", "2.0")).
       addDependency(new Project("javax.ccpp", "ccpp", "jar", "1.0")).
       addDependency(new Project("org.gatein.pc", "pc-api", "jar", pcVersion)).
@@ -71,7 +71,7 @@ function getModule(params)
       addDependency(new Project("org.gatein.pc", "pc-controller", "jar", pcVersion)).
       addDependency(new Project("org.gatein.pc", "pc-federation", "jar", pcVersion)).
       addDependency(new Project("org.gatein.wci", "wci-wci", "jar", wciVersion)).
-      addDependency(new Project("org.gatein.wci", "wci-exo", "jar", wciVersion)).
+      addDependency(new Project("org.gatein.wci", "wci-exo", "jar", "2.2.0-Beta02")).
       addDependency(new Project("org.gatein.common", "common-common", "jar", commonVersion)).
       addDependency(new Project("log4j", "log4j", "jar", "1.2.14")).
       addDependency(new Project("org.jboss", "jbossxb", "jar", "2.0.1.GA")).
@@ -81,7 +81,7 @@ function getModule(params)
 
    if(eXo.server.Tomcat || eXo.server.Jboss || eXo.server.JbossEar)
    {
-     module.component.pc.addDependency(new Project("org.gatein.wci", "wci-tomcat6", "jar", wciVersion));
+     module.component.pc.addDependency(new Project("org.gatein.wci", "wci-tomcat7", "jar", wciVersion));
    }
 
 
@@ -93,12 +93,12 @@ function getModule(params)
 
 
    module.component.scripting =
-   new Project("org.exoplatform.portal", "exo.portal.component.scripting", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.scripting", "jar", module.version).
       addDependency(new Project("rhino", "js", "jar", rhinoVersion)).
       addDependency(new Project("org.codehaus.groovy", "groovy-all", "jar", groovyVersion));
 
    module.component.management =
-   new Project("org.exoplatform.portal", "exo.portal.component.management", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.management", "jar", module.version).
       addDependency(new Project("org.gatein.management", "gatein-management-core", "jar", mgmtVersion)).
       addDependency(new Project("org.gatein.management", "gatein-management-api", "jar", mgmtVersion)).
       addDependency(new Project("org.gatein.management", "gatein-management-spi", "jar", mgmtVersion)).
@@ -106,29 +106,29 @@ function getModule(params)
 
    module.component.web = {}
    module.component.web.controller =
-   new Project("org.exoplatform.portal", "exo.portal.component.web.controller", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.web.controller", "jar", module.version).
       addDependency(module.component.common).
       addDependency(new Project("org.staxnav", "staxnav.core", "jar", staxnavVersion));
 
    module.component.web.security =
-   new Project("org.exoplatform.portal", "exo.portal.component.web.security", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.web.security", "jar", module.version).
       addDependency(module.component.web.controller).
       addDependency(module.component.scripting);
 
    module.component.web.server =
-   new Project("org.exoplatform.portal", "exo.portal.component.web.server", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.web.server", "jar", module.version).
       addDependency(module.component.web.controller).
       addDependency(module.component.scripting);
 
     module.component.web.resources =
-    new Project("org.exoplatform.portal", "exo.portal.component.web.resources", "jar", module.version).
+    new Project("org.gatein.portal", "exo.portal.component.web.resources", "jar", module.version).
       addDependency(new Project("com.google.javascript", "closure-compiler", "jar", googleJSVersion));
 
    module.component.web.api =
-   new Project("org.exoplatform.portal", "exo.portal.component.web.api", "jar", module.version);
+   new Project("org.gatein.portal", "exo.portal.component.web.api", "jar", module.version);
    
    module.component.portal =
-   new Project("org.exoplatform.portal", "exo.portal.component.portal", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.portal", "jar", module.version).
       addDependency(new Project("org.gatein.mop", "mop-api", "jar", mopVersion)).
       addDependency(new Project("org.gatein.mop", "mop-spi", "jar", mopVersion)).
       addDependency(new Project("org.gatein.mop", "mop-core", "jar", mopVersion)).
@@ -147,7 +147,7 @@ function getModule(params)
       addDependency(module.component.web.security);
 
    module.component.identity =
-   new Project("org.exoplatform.portal", "exo.portal.component.identity", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.identity", "jar", module.version).
       addDependency(new Project("org.picketlink.idm", "picketlink-idm-core", "jar", idmVersion)).
       addDependency(new Project("org.picketlink.idm", "picketlink-idm-common", "jar", idmVersion)).
       addDependency(new Project("org.picketlink.idm", "picketlink-idm-api", "jar", idmVersion)).
@@ -157,7 +157,7 @@ function getModule(params)
       addDependency(new Project("org.picketlink.idm", "picketlink-idm-cache", "jar", idmVersion));
 
    module.component.applicationRegistry =
-   new Project("org.exoplatform.portal", "exo.portal.component.application-registry", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.component.application-registry", "jar", module.version).
       addDependency(module.component.portal);
    
    module.component.redirect =
@@ -165,7 +165,7 @@ function getModule(params)
 
    module.webui = {};
    module.webui.framework =
-   new Project("org.exoplatform.portal", "exo.portal.webui.framework", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.webui.framework", "jar", module.version).
       addDependency(module.component.web.server).
       addDependency(module.component.web.security).
       addDependency(module.component.web.api).
@@ -173,20 +173,20 @@ function getModule(params)
       addDependency(module.component.web.controller);
 
    module.webui.portlet =
-   new Project("org.exoplatform.portal", "exo.portal.webui.portlet", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.webui.portlet", "jar", module.version).
       addDependency(module.webui.framework);
 
    module.webui.core =
-   new Project("org.exoplatform.portal", "exo.portal.webui.core", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.webui.core", "jar", module.version).
       addDependency(module.webui.portlet);
 
    module.webui.eXo =
-   new Project("org.exoplatform.portal", "exo.portal.webui.eXo", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.webui.eXo", "jar", module.version).
       addDependency(module.component.applicationRegistry).
       addDependency(module.webui.core);
 
    module.webui.portal =
-   new Project("org.exoplatform.portal", "exo.portal.webui.portal", "jar", module.version).
+   new Project("org.gatein.portal", "exo.portal.webui.portal", "jar", module.version).
       addDependency(module.component.common).
       addDependency(module.component.management).
       addDependency(module.component.resources).
@@ -216,14 +216,14 @@ function getModule(params)
    module.portlet = {};
 
    module.portlet.exoadmin =
-   new Project("org.exoplatform.portal", "exo.portal.portlet.exoadmin", "exo-portlet", module.version);
+   new Project("org.gatein.portal", "exo.portal.portlet.exoadmin", "exo-portlet", module.version);
 
    module.portlet.web =
-   new Project("org.exoplatform.portal", "exo.portal.portlet.web", "exo-portlet", module.version);
+   new Project("org.gatein.portal", "exo.portal.portlet.web", "exo-portlet", module.version);
 
    module.portlet.dashboard =
-   new Project("org.exoplatform.portal", "exo.portal.portlet.dashboard", "exo-portlet", module.version).
-      addDependency(new Project("org.exoplatform.portal", "exo.portal.webui.dashboard", "jar", module.version));
+   new Project("org.gatein.portal", "exo.portal.portlet.dashboard", "exo-portlet", module.version).
+      addDependency(new Project("org.gatein.portal", "exo.portal.webui.dashboard", "jar", module.version));
 
    module.portlet.redirect =
    new Project("org.gatein.portal.portlet", "redirect", "war", module.version).
@@ -235,7 +235,7 @@ function getModule(params)
    module.sample.skin = new Project("org.gatein.portal.examples.skins", "gatein-sample-skin", "war", module.version);
 
    module.eXoGadgetServer =
-   new Project("org.exoplatform.portal", "exo.portal.gadgets-server", "war", module.version).
+   new Project("org.gatein.portal", "exo.portal.gadgets-server", "war", module.version).
       addDependency(new Project("commons-io", "commons-io", "jar", "1.4")).
       addDependency(new Project("commons-codec", "commons-codec", "jar", "1.4")).
       addDependency(new Project("net.oauth.core", "oauth", "jar", "20100527")).
@@ -269,21 +269,21 @@ function getModule(params)
       addDependency(new Project("de.odysseus.juel", "juel-impl", "jar", "2.1.2")).
       addDependency(new Project("org.jsecurity", "jsecurity", "jar", "0.9.0")).
       addDependency(new Project("aopalliance", "aopalliance", "jar", "1.0")).
-      addDependency(new Project("org.exoplatform.portal", "exo.portal.gadgets-core", "jar", module.version));
+      addDependency(new Project("org.gatein.portal", "exo.portal.gadgets-core", "jar", module.version));
    module.eXoGadgetServer.deployName = "eXoGadgetServer";
 
-   module.eXoGadgets = new Project("org.exoplatform.portal", "exo.portal.eXoGadgets", "war", module.version);
+   module.eXoGadgets = new Project("org.gatein.portal", "exo.portal.eXoGadgets", "war", module.version);
    module.eXoGadgets.deployName = "eXoGadgets";
 
    module.web = {}
    module.web.eXoResources =
-   new Project("org.exoplatform.portal", "exo.portal.web.eXoResources", "war", module.version);
+   new Project("org.gatein.portal", "exo.portal.web.eXoResources", "war", module.version);
    module.web.rest =
-   new Project("org.exoplatform.portal", "exo.portal.web.rest", "war", module.version).
+   new Project("org.gatein.portal", "exo.portal.web.rest", "war", module.version).
       addDependency(ws.frameworks.servlet);
 
    module.web.portal =
-   new Project("org.exoplatform.portal", "exo.portal.web.portal", "exo-portal", module.version).
+   new Project("org.gatein.portal", "exo.portal.web.portal", "exo-portal", module.version).
       addDependency(jcr.frameworks.web).
       addDependency(jcr.frameworks.command);
 
@@ -292,20 +292,20 @@ function getModule(params)
 
    module.server.tomcat = {}
    module.server.tomcat.patch =
-   new Project("org.exoplatform.portal", "exo.portal.server.tomcat.patch", "jar", module.version);
+   new Project("org.gatein.portal", "exo.portal.server.tomcat.patch", "jar", module.version);
 
    module.server.jboss = {}
    module.server.jboss.patch =
-   new Project("org.exoplatform.portal", "exo.portal.server.jboss.patch", "jar", module.version);
+   new Project("org.gatein.portal", "exo.portal.server.jboss.patch", "jar", module.version);
 
    module.server.jbossear = {}
    module.server.jbossear.patch =
-   new Project("org.exoplatform.portal", "exo.portal.server.jboss.patch-ear", "jar", module.version);
+   new Project("org.gatein.portal", "exo.portal.server.jboss.patch-ear", "jar", module.version);
 
    module.sample.extension =
-   new Project("org.exoplatform.portal", "gatein-sample-extension", "ear", module.version).
-   addDependency(new Project("org.exoplatform.portal", "gatein-sample-portal", "ear", module.version)).
-   addDependency(new Project("org.exoplatform.portal", "starter-gatein", "ear", module.version));
+   new Project("org.gatein.portal", "gatein-sample-extension", "ear", module.version).
+   addDependency(new Project("org.gatein.portal", "gatein-sample-portal", "ear", module.version)).
+   addDependency(new Project("org.gatein.portal", "starter-gatein", "ear", module.version));
 
    <!-- needed so that GTN can be run on the IBM jdk, to be removed when the IBM jdk no longer needs this hack -->
    module.ibm = {};
